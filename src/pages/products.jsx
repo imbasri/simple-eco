@@ -1,3 +1,4 @@
+import Button from "../components/Elements/Button";
 import CardProduct from "../components/Fragments/CardProduct";
 
 const ProductsPage = () => {
@@ -31,20 +32,27 @@ const ProductsPage = () => {
       description: "Sepatu Baru Kita Jual Dengan Harga Murah",
     },
   ];
+  const email = localStorage.getItem("email");
   return (
-    <div className="flex justify-center h-[600px] py-5 gap-5">
-      {products.map((product) => {
-        return (
-          <CardProduct>
-            <CardProduct.Header images={product.image} />
-            <CardProduct.Body name={product.name}>
-              {product.description}
-            </CardProduct.Body>
-            <CardProduct.Footer price={product.price} />
-          </CardProduct>
-        );
-      })}
-    </div>
+    <>
+      <div className="flex justify-end bg-blue-600 px-10 text-white items-center h-10">
+        {email}
+        <Button width="w-20">Logout</Button>
+      </div>
+      <div className="flex justify-center h-[600px] py-5 gap-5">
+        {products.map((product) => {
+          return (
+            <CardProduct>
+              <CardProduct.Header images={product.image} />
+              <CardProduct.Body name={product.name}>
+                {product.description}
+              </CardProduct.Body>
+              <CardProduct.Footer price={product.price} />
+            </CardProduct>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
