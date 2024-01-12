@@ -6,11 +6,12 @@ const Button = (props) => {
     hover = "hover:bg-blue-800",
     width = "w-full",
     onClick = () => {},
+    styles = "",
   } = props;
   return (
     <button
       type={type}
-      className={`text-center flex justify-center items-center h-10 px-6 my-2 font-semibold rounded-md ${width} ${variant} ${hover} text-white`}
+      className={ `${styles} text-center flex justify-center items-center h-10 px-6 my-2 font-semibold rounded-md ${width} ${variant} ${hover} text-white`}
       onClick={onClick}
     >
       {children}

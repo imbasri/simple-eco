@@ -33,11 +33,16 @@ const ProductsPage = () => {
     },
   ];
   const email = localStorage.getItem("email");
+  const handleLogout = () => {
+    localStorage.removeItem('email')
+    localStorage.removeItem('password')
+    window.location.href = "/login"
+  }
   return (
     <>
       <div className="flex justify-end bg-blue-600 px-10 text-white items-center h-10">
         {email}
-        <Button width="w-20">Logout</Button>
+        <Button styles="ml-5" width="w-20" hover="hover:bg-red-800" onClick={handleLogout}>Logout</Button>
       </div>
       <div className="flex justify-center h-[600px] py-5 gap-5">
         {products.map((product) => {
