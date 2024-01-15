@@ -13,20 +13,20 @@ const Header = (props) => {
   const { images, alt = "images" } = props;
   return (
     <a href="#">
-      <img src={images} alt={alt} className="p-8 rounded-t-lg" />
+      <img src={images} alt={alt} className="p-8 rounded-t-lg bg-contain aspect-auto  w-full h-[300px]" />
     </a>
   );
 };
 const Body = (props) => {
   const { children, name } = props;
   return (
-    <div className="px-5 pb-5">
+    <div className="px-5">
       <a href="#">
         <h5 className="text-xl font-semibold tracking-tight text-white">
-          {name}
+          {name.substring(0,20)}...
         </h5>
-        <p className="text-md text-white overflow-y-auto h-[200px]">
-          {children}
+        <p className="text-md text-white overflow-y-auto text-wrap w-full h-[200px] p-2">
+          {children.substring(0,200)}...
         </p>
       </a>
     </div>
@@ -36,8 +36,8 @@ const Body = (props) => {
 const Footer = (props) => {
   const { price,handleAddToCart ,id} = props;
   return (
-    <div className="flex items-center justify-between px-5 py-5">
-      <span className="text-xl font-bold text-white">Rp.{price.toLocaleString('id-ID',{styles: 'currency', currency: 'IDR'})}</span>
+    <div className="flex items-center justify-between px-4">
+      <span className="text-xl font-bold text-white">${price.toLocaleString('id-ID',{styles: 'currency', currency: 'USD'})}</span>
       <Button
         type="submit"
         variant="bg-blue-600"
