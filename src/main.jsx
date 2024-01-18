@@ -9,7 +9,10 @@ import RegisterPage from "./pages/register.jsx";
 import ErrorPage from "./pages/404.jsx";
 import ProductsPage from "./pages/products.jsx";
 import ProfilePage from "./pages/profile.jsx";
+<<<<<<< HEAD
 import DetailProductPage from "./pages/detailProduct.jsx";
+=======
+>>>>>>> c49d2b50a0904cfffba6c6092217c434326f6e0c
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,10 +39,13 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <ProfilePage />,
   },
+<<<<<<< HEAD
   {
     path: "/product/:id",
     element: <DetailProductPage />,
   },
+=======
+>>>>>>> c49d2b50a0904cfffba6c6092217c434326f6e0c
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
