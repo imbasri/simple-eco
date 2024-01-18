@@ -3,28 +3,21 @@ import Button from "../components/Elements/Button";
 import CardProduct from "../components/Fragments/CardProduct";
 import { getProducts } from "../services/product.service";
 import { getUsername } from "../services/auth.services";
+import { useLogin } from "../hooks/useLogin";
 
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
-  const [username, setUsername] = useState("");
+  const username = useLogin()
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setUsername(getUsername(token));
-    } else {
-      window.location.href = "/login";
-    }
-  }, []);
+
 
   useEffect(() => {
     getProducts((data) => {
-      console.log(data);
       setProducts(data);
     });
   }, []);
@@ -73,7 +66,7 @@ const ProductsPage = () => {
             products.map((product, index) => {
               return (
                 <CardProduct key={index}>
-                  <CardProduct.Header images={product.image} />
+                  <CardProduct.Header images={product.image} id={product.id} />
                   <CardProduct.Body name={product.title}>{product.description}</CardProduct.Body>
                   <CardProduct.Footer
                     price={product.price}
