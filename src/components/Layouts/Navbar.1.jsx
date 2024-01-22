@@ -4,7 +4,7 @@ import Button from "../Elements/Button";
 import { useSelector } from "react-redux";
 import { DarkMode } from "../../context/DarkMode";
 
-const Navbar = () => {
+export const Navbar = () => {
   const username = useLogin();
   const [totalCart, setTotalCart] = useState(0);
   const cart = useSelector((state) => state.cart.data);
@@ -37,7 +37,7 @@ const Navbar = () => {
         Cart {totalCart}
       </div>
       <button
-        className="ml-5 py-2 px-6 bg-slate-600 text-white rounded"
+        className="ml-5 py-2 px-6 bg--600 text-white rounded"
         onClick={() => setIsDarkMode(!isDarkMode)}
       >
         {isDarkMode ? "Light" : "Dark"}
@@ -45,4 +45,3 @@ const Navbar = () => {
     </div>
   );
 };
-export default Navbar;
