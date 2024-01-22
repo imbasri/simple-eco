@@ -3,14 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 // routes
+import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LoginPage from "./pages/login.jsx";
-import RegisterPage from "./pages/register.jsx";
+import Navbar from "./components/Layouts/Navbar.jsx";
 import ErrorPage from "./pages/404.jsx";
+import DetailProductPage from "./pages/detailProduct.jsx";
+import LoginPage from "./pages/login.jsx";
 import ProductsPage from "./pages/products.jsx";
 import ProfilePage from "./pages/profile.jsx";
-import DetailProductPage from "./pages/detailProduct.jsx";
-import { Provider } from "react-redux";
+import RegisterPage from "./pages/register.jsx";
 import store from "./redux/store.js";
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
+      <Navbar />
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,

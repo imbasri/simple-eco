@@ -7,6 +7,7 @@ const store = configureStore({
   },
 });
 console.log("oncreate store", store.getState());
+
 store.subscribe(() => {
   console.log("onchange store", store.getState());
 });
